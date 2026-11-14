@@ -1,0 +1,25 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "multiversis-api-key",
+      "description": "MultiverSIS API key (the server prints it when it starts)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "multiversis": {
+      "type": "stdio",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "${workspaceFolder}/mcp/Start-MultiverSISMcp.ps1"
+      ],
+      "env": {
+        "MULTIVERSIS_API_KEY": "${input:multiversis-api-key}"
+      }
+    }
+  }
+}

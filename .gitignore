@@ -1,0 +1,18 @@
+# MultiverSIS runtime data: the database and the server's API key
+server/data/
+
+# Things the demos create and then clean up (in case a demo stops halfway)
+*.cred.xml
+unknown-students.csv
+
+# Slides
+node_modules/
+slides/dist/
+slides/.slidev/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Local Claude Code settings
+.claude/

@@ -1,0 +1,50 @@
+# Builds the Slidev deck and publishes it to GitHub Pages.
+# One-time setup: make the repo public, then Settings > Pages > Source: "GitHub Actions".
+# While the repo is private, this skips itself (Pages on private repos needs a paid plan;
+# if you have one, delete the `if:` line below).
+name: Deploy slides
+
+on:
+  push:
+    branches: [main]
+    paths: ['slides/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: slides
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: slides/package-lock.json
+      - run: npm ci
+      - run: npx slidev build --base /${{ github.event.repository.name }}/
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: slides/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

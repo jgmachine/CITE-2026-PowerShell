@@ -1,0 +1,372 @@
+/* ------------------------------------------------------------------
+   Mad-scientist lab theme for "From Scripts to Systems"
+   ------------------------------------------------------------------ */
+
+:root {
+  --lab-bg: #06100d;
+  --lab-panel: rgba(13, 34, 27, 0.82);
+  --lab-line: #22503f;
+  --lab-text: #e7f6ee;
+  --lab-muted: #9dbfb1;
+  --portal: #8cff3a;
+  --portal-light: #d2ff8f;
+  --portal-deep: #2e9e1f;
+  --teal: #3fd9d0;
+  --amber: #ffb627;
+  --danger: #ff5c7a;
+  --paper: #f3e6c8;
+  --ink: #2b2117;
+  --font-title: 'Creepster', 'Nunito Variable', cursive;
+  --font-marker: 'Permanent Marker', 'Nunito Variable', cursive;
+
+  --slidev-theme-primary: #8cff3a;
+  --slidev-code-background: #020a06;
+  --slidev-code-font-size: 16px;
+  --slidev-code-line-height: 24px;
+  --slidev-code-padding: 14px 18px;
+  --slidev-code-radius: 12px;
+  --slidev-code-margin: 10px 0;
+}
+
+html.dark {
+  --slidev-code-background: #020a06;
+}
+
+/* ---------- The lab itself ---------- */
+
+.slidev-layout {
+  color: var(--lab-text);
+  font-family: 'Nunito Variable', system-ui, sans-serif;
+  font-size: 1.05rem;
+  background:
+    radial-gradient(ellipse 60% 55% at 92% -8%, rgba(140, 255, 58, 0.16), transparent 70%),
+    radial-gradient(ellipse 55% 50% at -8% 108%, rgba(63, 217, 208, 0.12), transparent 70%),
+    linear-gradient(rgba(63, 217, 208, 0.04) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(90deg, rgba(63, 217, 208, 0.04) 1px, transparent 1px) 0 0 / 34px 34px,
+    var(--lab-bg);
+}
+
+.slidev-layout h1 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 3.1rem;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  color: var(--portal);
+  text-shadow: 0 3px 0 #0b3d12;
+  margin-bottom: 0.55em;
+}
+
+.slidev-layout h1 + p {
+  opacity: 0.85;
+  margin-top: -0.6rem;
+  color: var(--lab-muted);
+}
+
+.slidev-layout h2 {
+  font-weight: 800;
+  color: var(--teal);
+}
+
+.slidev-layout h3 {
+  font-weight: 800;
+  color: var(--portal-light);
+}
+
+.slidev-layout strong {
+  color: var(--portal-light);
+}
+
+.slidev-layout em {
+  color: var(--teal);
+  font-style: normal;
+}
+
+.slidev-layout a {
+  color: var(--teal);
+  border-bottom: 1px dashed var(--teal);
+}
+
+.slidev-layout ul > li::marker {
+  color: var(--portal);
+}
+
+.slidev-layout li + li {
+  margin-top: 0.3em;
+}
+
+/* Accessibility: big, readable bullets. Keep each one to a single short line. */
+.slidev-layout li {
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
+
+.slidev-layout code:not(pre code) {
+  font-family: 'JetBrains Mono Variable', monospace;
+  font-size: 0.88em;
+  color: var(--portal-light);
+  background: rgba(140, 255, 58, 0.1);
+  border: 1px solid rgba(140, 255, 58, 0.22);
+  padding: 0.05em 0.35em;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.slidev-layout table {
+  font-size: 1.1rem;
+}
+
+.slidev-layout th {
+  color: var(--portal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--lab-line);
+}
+
+.slidev-layout td {
+  border-bottom: 1px solid rgba(34, 80, 63, 0.55);
+}
+
+/* ---------- Code blocks are CRT terminals ---------- */
+
+.slidev-code-wrapper {
+  position: relative;
+}
+
+.slidev-layout .slidev-code {
+  position: relative;
+  padding-top: 38px !important;
+  border: 1px solid #2c6a3f;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Title bar dots */
+.slidev-layout .slidev-code::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 18px 0 #febc2e, 36px 0 #28c840;
+  opacity: 0.85;
+}
+
+/* Scanlines */
+.slidev-layout .slidev-code::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  display: none; /* scanlines off: they cut text contrast */
+}
+
+/* Bigger code for the hero slides */
+.big-code {
+  --slidev-code-font-size: 19px;
+  --slidev-code-line-height: 28px;
+}
+
+.huge-code {
+  --slidev-code-font-size: 23px;
+  --slidev-code-line-height: 34px;
+}
+
+.small-code {
+  --slidev-code-font-size: 14px;
+  --slidev-code-line-height: 21px;
+}
+
+/* ---------- Reusable bits ---------- */
+
+.lab-panel {
+  background: var(--lab-panel);
+  border: 1px solid var(--lab-line);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.marker {
+  font-family: var(--font-marker);
+}
+
+.goo-text {
+  font-family: var(--font-title);
+  color: var(--portal);
+  text-shadow: 0 3px 0 #0b3d12;
+}
+
+.muted {
+  color: var(--lab-muted);
+}
+
+.danger {
+  color: var(--danger);
+}
+
+.caption {
+  font-size: 1.25rem;
+  color: var(--lab-muted);
+}
+
+.caption b {
+  color: var(--portal);
+  font-weight: 800;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.1em 0.7em;
+  border-radius: 999px;
+  border: 1px solid var(--portal-deep);
+  color: var(--portal);
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Numbered "bug" callouts for the cold open */
+.bug {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--danger);
+  color: #1a0006;
+  font-weight: 900;
+  font-size: 0.95em;
+}
+
+/* ---------- Automatic entrances ----------
+   Bullets and .stagger children fade in one after another each time a slide appears,
+   so most slides need no clicks at all. (Slidev hides inactive slides with display:none,
+   which restarts these animations on every visit.) */
+
+.slidev-layout li,
+.stagger > * {
+  animation: rise-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15) backwards;
+}
+
+.slidev-layout li:nth-child(1), .stagger > :nth-child(1) { animation-delay: 0.10s; }
+.slidev-layout li:nth-child(2), .stagger > :nth-child(2) { animation-delay: 0.22s; }
+.slidev-layout li:nth-child(3), .stagger > :nth-child(3) { animation-delay: 0.34s; }
+.slidev-layout li:nth-child(4), .stagger > :nth-child(4) { animation-delay: 0.46s; }
+.slidev-layout li:nth-child(5), .stagger > :nth-child(5) { animation-delay: 0.58s; }
+.slidev-layout li:nth-child(6), .stagger > :nth-child(6) { animation-delay: 0.70s; }
+.slidev-layout li:nth-child(7), .stagger > :nth-child(7) { animation-delay: 0.82s; }
+.slidev-layout li:nth-child(8), .stagger > :nth-child(8) { animation-delay: 0.94s; }
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* No entrance animations in PDF exports or for people who prefer less motion */
+html.print .slidev-layout *,
+html.print .slidev-layout *::before {
+  animation: none !important;
+}
+
+@media print {
+  .slidev-layout * {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout li,
+  .stagger > * {
+    animation: none;
+  }
+}
+
+/* ---------- Portal transition ----------
+   The next slide opens through a growing circle. (global-top.vue adds the glowing ring.) */
+
+.portal-enter-active {
+  animation: portal-open 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  z-index: 10;
+}
+
+.portal-leave-active {
+  animation: portal-fade 0.8s ease-in both;
+}
+
+@keyframes portal-open {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    filter: hue-rotate(50deg) brightness(1.7) saturate(1.6);
+  }
+  55% {
+    filter: none;
+  }
+  100% {
+    clip-path: circle(80% at 50% 50%);
+  }
+}
+
+@keyframes portal-fade {
+  to {
+    opacity: 0.2;
+    transform: scale(0.94) rotate(-2deg);
+    filter: blur(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-enter-active,
+  .portal-leave-active {
+    animation: none;
+  }
+}
+
+/* Terminal output (as opposed to code): phosphor green */
+.output .slidev-code span {
+  color: #c8ffb4 !important;
+}
+
+.term-label {
+  font-family: var(--font-marker);
+  color: var(--amber);
+  font-size: 1.05rem;
+  margin: 0 0 -2px;
+}
+
+/* Let grid columns shrink instead of spilling off the slide */
+.slidev-layout .grid > * {
+  min-width: 0;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ---------- Sharp text while things animate ----------
+   Slidev normally lays each slide out at 980px and stretches it to the screen with
+   transform: scale(). Chrome hands anything animating to the GPU as a bitmap, and a
+   stretched bitmap looks fuzzy. CSS zoom lays the slide out at the real screen size
+   instead, so every pixel is drawn at full resolution, moving or not. */
+.slidev-slide-content {
+  transform: none !important;
+  zoom: var(--slidev-slide-container-scale);
+  inset: 0 !important;
+  margin: auto;
+}
+
+/* Lines a click hasn't reached yet: dimmed, but still readable from the back row */
+.slidev-code .slidev-code-dishonored {
+  opacity: 0.45;
+}
+
+/* Act II title slide carries three definitions: start the text higher instead of centering it */
+.slidev-layout.act:has(.defs) .text {
+  align-self: start;
+  margin-top: 2.6rem;
+}
