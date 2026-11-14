@@ -20,7 +20,8 @@ Everything runs on your laptop. The "SIS" is **MultiverSIS**, a small web API wr
 | [`server/`](server) | The MultiverSIS server and its live dashboard. |
 | [`mcp/`](mcp) | An MCP server that lets AI assistants use the MultiverSIS commands. |
 | [`setup/`](setup) | One script to install prerequisites, one to check your lab. |
-| [`docs/`](docs) | A [PDF of the slides](docs/from-scripts-to-systems.pdf), the [find-your-small-problem worksheet](docs/worksheet.md), and the [presenter runbook](docs/presenter-runbook.md). |
+| [`from-scripts-to-systems.pdf`](from-scripts-to-systems.pdf) | The slides as a PDF, if you just want to read them. |
+| [`docs/`](docs) | The [find-your-small-problem worksheet](docs/worksheet.md) and the [presenter runbook](docs/presenter-runbook.md). |
 
 ## Follow along (Mac or Windows)
 
@@ -129,7 +130,7 @@ npm run dev
 
 The deck opens at <http://localhost:3030>. Presenter view (with notes and a timer) is at <http://localhost:3030/presenter>. Arrow keys, the space bar, and most clickers advance it.
 
-Just want to read the slides? There's a PDF copy: [`docs/from-scripts-to-systems.pdf`](docs/from-scripts-to-systems.pdf). To export a fresh one, run `npm install -D playwright-chromium`, then `npm run export`.
+Just want to read the slides? There's a PDF copy: [`from-scripts-to-systems.pdf`](from-scripts-to-systems.pdf). To export a fresh one, run `npm install -D playwright-chromium`, then `npm run export`.
 
 To publish the slides to GitHub Pages, make the repo public, then set **Settings > Pages > Source** to **GitHub Actions**. [The workflow](.github/workflows/deploy-slides.yml) builds and deploys on every push to `slides/`. (It skips itself while the repo is private.)
 

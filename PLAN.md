@@ -46,12 +46,13 @@ Get-RMCharacter -Name Rick |          # "vendor" API      (RickMortyApi module)
 CITE-2026-PowerShell/
 ├─ README.md             quick start, demos, MCP setup, resources, credits
 ├─ LICENSE               MIT
+├─ from-scripts-to-systems.pdf   the slides as a PDF
 ├─ setup/                Install-Prereqs.ps1, Test-Lab.ps1
 ├─ modules/              RickMortyApi (with its offline snapshot), DistrictTools, MultiverSIS
 ├─ server/               Start-MultiverSIS.ps1 (Pode API) + public/index.html (dashboard)
 ├─ demos/                demo.ps1 (every command from the talk, in order) + 02-evolution/
 ├─ mcp/                  Start-MultiverSISMcp.ps1 (plain-PowerShell MCP server)
-├─ docs/                 from-scripts-to-systems.pdf, worksheet.md, presenter-runbook.md
+├─ docs/                 worksheet.md, presenter-runbook.md
 ├─ slides/               Slidev deck (slides.md, components/, layouts/, styles/)
 ├─ .vscode/mcp.json      Copilot's MCP config (prompts for the API key)
 └─ .github/              copilot-instructions.md, workflows/deploy-slides.yml
