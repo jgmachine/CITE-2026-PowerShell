@@ -97,6 +97,37 @@ Welcome. Housekeeping: 45 minutes, and everything I show is in a GitHub repo. Th
 
 ---
 
+# Lab census
+
+<p class="sub">Raise your hand if you're a...</p>
+
+<div class="census stagger">
+  <div><div class="i-ph-flask-duotone icon" /><b>Fresh specimen</b><p>Never used PowerShell</p></div>
+  <div><div class="i-ph-test-tube-duotone icon" /><b>Lab assistant</b><p>Dabbled. Copied a script or two.</p></div>
+  <div><div class="i-ph-atom-duotone icon" /><b>Mad scientist</b><p>I write my own functions and modules</p></div>
+</div>
+
+<style>
+.sub { margin-top: -0.6rem; color: var(--lab-muted); font-size: 1.4rem; }
+.census { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 1.6rem; }
+.census > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 24px 18px; border: 1px solid var(--lab-line); border-radius: 16px; background: var(--lab-panel); }
+.census .icon { font-size: 4rem; color: var(--portal); }
+.census b { font-size: 1.6rem; color: var(--portal-light); }
+.census p { margin: 0; font-size: 1.2rem; color: var(--lab-muted); }
+</style>
+
+<!--
+[1:15] Quick show of hands. Read each card and pause for hands.
+
+1. "Fresh specimens: never opened PowerShell." Welcome. The first half is for you.
+2. "Lab assistants: dabbled, copied a script or two." Most rooms are mostly this. Good.
+3. "Mad scientists: you write your own functions and modules." Keep your hands up... you're my backup if the demo breaks. (Laugh.)
+
+Use the answer: lots of fresh specimens means slow down in Act I. Lots of mad scientists means move faster through Act I and spend the time in Acts III and V.
+-->
+
+---
+
 # Lab manuals
 
 <p class="sub">You can't learn PowerShell in 45 minutes. But you can learn where to start.</p>
@@ -147,7 +178,7 @@ Welcome. Housekeeping: 45 minutes, and everything I show is in a GitHub repo. Th
 </style>
 
 <!--
-[1:15] Set expectations: 45 minutes can't teach PowerShell. It can show you where it goes. These two books are the classic path.
+[1:45] Set expectations: 45 minutes can't teach PowerShell. It can show you where it goes. These two books are the classic path.
 
 - Month of Lunches: one short chapter a day, written for admins, not programmers. Get the current edition; older ones are Windows PowerShell 5.1 era.
 - The Scripting book picks up where this talk leaves off: functions, modules, help, tools other people can use.
@@ -161,43 +192,12 @@ Every card is a link in the online slides, and everything is in the repo README,
 
 ---
 
-# Lab census
-
-<p class="sub">Raise your hand if you're a...</p>
-
-<div class="census stagger">
-  <div><div class="i-ph-flask-duotone icon" /><b>Fresh specimen</b><p>Never used PowerShell</p></div>
-  <div><div class="i-ph-test-tube-duotone icon" /><b>Lab assistant</b><p>Dabbled. Copied a script or two.</p></div>
-  <div><div class="i-ph-atom-duotone icon" /><b>Mad scientist</b><p>I write my own functions and modules</p></div>
-</div>
-
-<style>
-.sub { margin-top: -0.6rem; color: var(--lab-muted); font-size: 1.4rem; }
-.census { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 1.6rem; }
-.census > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 24px 18px; border: 1px solid var(--lab-line); border-radius: 16px; background: var(--lab-panel); }
-.census .icon { font-size: 4rem; color: var(--portal); }
-.census b { font-size: 1.6rem; color: var(--portal-light); }
-.census p { margin: 0; font-size: 1.2rem; color: var(--lab-muted); }
-</style>
-
-<!--
-[2:00] Quick show of hands. Read each card and pause for hands.
-
-1. "Fresh specimens: never opened PowerShell." Welcome. The first half is for you.
-2. "Lab assistants: dabbled, copied a script or two." Most rooms are mostly this. Good.
-3. "Mad scientists: you write your own functions and modules." Keep your hands up... you're my backup if the demo breaks. (Laugh.)
-
-Use the answer: lots of fresh specimens means slow down in Act I. Lots of mad scientists means move faster through Act I and spend the time in Acts III and V.
--->
-
----
-
 # What we'll cover
 
 <div class="roadmap stagger">
   <div><span class="n">1</span><b>Three commands</b><span class="d">Get-Command, Get-Help, Get-Member</span></div>
-  <div><span class="n">2</span><b>Script → system</b><span class="d">One-liner, script, function, module</span></div>
-  <div><span class="n">3</span><b>Lego bricks</b><span class="d">Snap tools together across systems</span></div>
+  <div><span class="n">2</span><b>Scripts → Tools</b><span class="d">One-liner, script, function, module</span></div>
+  <div><span class="n">3</span><b>Lego bricks</b><span class="d">Snap tools together into a system</span></div>
   <div><span class="n">4</span><b>Secrets</b><span class="d">Where the API keys live</span></div>
   <div class="ai"><span class="n">5</span><b>AI lab assistant</b><span class="d">Go fast, once you can read the code</span></div>
 </div>
@@ -515,7 +515,7 @@ act: II
 transition: portal
 ---
 
-# From Script to System
+# From Scripts to Tools
 
 <div class="defs">
   <div><b>Script:</b> one job, usually hardcoded.</div>
@@ -1060,9 +1060,8 @@ If your module is in a public GitHub repo, GitMCP (gitmcp.io/owner/repo) lets an
 <div class="ready grid grid-cols-[0.9fr_1.1fr] gap-6 mt-2 items-start">
 <div class="steps stagger">
   <div><span>1</span><div><b>Make it accessible</b><p>Installed on your machine, or open in VS Code</p></div></div>
-  <div><span>2</span><div><b>Add an instructions file</b><p>Every AI coding tool reads one</p></div></div>
+  <div><span>2</span><div><b>Add an instructions file</b><p>Tell it: <code>Get-Command</code> and <code>Get-Help</code> first</p></div></div>
   <div><span>3</span><div><b>Write help comments</b><p><code>.SYNOPSIS</code> <code>.PARAMETER</code> <code>.EXAMPLE</code></p></div></div>
-  <div><span>4</span><div><b>Make it check its work</b><p><code>Get-Command</code> and <code>Get-Help</code> first</p></div></div>
 </div>
 <div>
 
@@ -1093,44 +1092,13 @@ Use our MultiverSIS module.
 </style>
 
 <!--
-[36:15] Four steps. None of them needs anything new installed.
+[36:15] Three steps. None of them needs anything new installed.
 
 1. Make it findable. An agent that can run commands only needs the module installed on your machine: it runs Get-Command and Get-Help, like you did in Act I. The module doesn't have to live in your project. What the agent can't do is guess that it exists, which is what step 2 is for. (Opening the module's folder in VS Code also works, and lets the agent read the source. That's for when you're working on the module itself.)
-2. An instructions file is a plain Markdown file the agent reads every time. Name your module in it. Copilot reads .github/copilot-instructions.md, Claude Code reads CLAUDE.md, Codex reads AGENTS.md. Same idea, different file name. This repo's is on the right, trimmed.
+2. An instructions file is a plain Markdown file the agent reads every time. Name your module in it. Copilot reads .github/copilot-instructions.md, Claude Code reads CLAUDE.md, Codex reads AGENTS.md. Same idea, different file name. This repo's is on the right, trimmed. The first two lines are the important ones: the agent can run Get-Command and Get-Help itself, so tell it to, and it uses real parameter names instead of guessing.
 3. Comment-based help. The same .SYNOPSIS, .PARAMETER, and .EXAMPLE you wrote in Act II is what the agent reads. ValidateSet tells it the only allowed values.
-4. Tell it to check. The agent can run Get-Command and Get-Help itself, so it uses real parameter names instead of guessing.
 
 Callback: the three commands from minute three are how the robot learns your module, too.
--->
-
----
-layout: demo
-file: demos/demo.ps1 · Act V
----
-
-# Read it. Then run it.
-
-- What the AI reads: `Get-Command`, `Get-Help`
-- The prompt you'd give it
-- The script it writes, with **your** functions
-- **You** read it. **You** run it.
-- Watch the dashboard change
-
-<!--
-[37:30] demo.ps1, the "Act V" section. VS Code is already open on this repo with MultiverSIS running. No live AI in this demo: you show what the AI reads, what you'd ask, and what it writes, and you run it yourself.
-
-First, two lines: Get-Command -Module MultiverSIS and Get-Help Set-SISStudent -Examples. "This is what the AI reads to learn the module. The same commands you used in Act I."
-
-Then the prompt, which is a comment in demo.ps1. Read it out loud:
-"Learn the MultiverSIS module with Get-Command and Get-Help. Then write a script, withdraw.ps1, that withdraws every student whose enrollment status is Unknown. Use -WhatIf. Don't run it; I'll review it and run it myself."
-
-"And this is what comes back." The next line in demo.ps1 is the script an agent writes for that prompt. Read it out loud before you run it: get the students whose status is Unknown, set them to Withdrawn, -WhatIf.
-
-Run it: -WhatIf first. It lists 24 students. "24 is how many Unknowns the dashboard shows. That looks right." Then for real: the Unknown count drops to zero and 24 cards flash.
-
-The AI wrote it; you read it; you ran it. That's "Read it" and "Direct it" from the start of the talk.
-
-Extra time at the end? Paste the same prompt into Copilot Chat (Agent mode) or another agent and compare what it writes. It asks permission before running terminal commands: "Good. It should ask." If it misbehaves, you already showed the answer.
 -->
 
 ---
@@ -1156,7 +1124,7 @@ Extra time at the end? Paste the same prompt into Copilot Chat (Agent mode) or a
 </div>
 
 <!--
-[42:30] This is the most important slide in Act V. Slow down here.
+[37:30] This is the most important slide in Act V. Slow down here.
 
 Reading docs is very different from handing an AI your credentials. Let it read first. Let it write only with -WhatIf and your approval. Real student data goes through your district's approval process first: FERPA, your AI policy, your data privacy agreements.
 
@@ -1190,7 +1158,7 @@ If you do build an MCP server, the one in this repo shows the guardrails: an all
 </style>
 
 <!--
-[43:15] Six steps, in order. Each one is small.
+[38:15] Six steps, in order. Each one is small.
 
 Answer the opening question out loud here: is this talk obsolete? No. AI writes good code now, so the skill moved. Read it, direct it, and build simple, solid tools that people and AI can both use.
 -->
@@ -1226,7 +1194,7 @@ Answer the opening question out loud here: is this talk obsolete? No. AI writes 
 </style>
 
 <!--
-[44:00] Leave this up during questions. The QR code goes to your LinkedIn profile. The repo address is at the bottom of the slide, and its README has links for every book and resource.
+[39:00] Leave this up during questions. The QR code goes to your LinkedIn profile. The repo address is at the bottom of the slide, and its README has links for every book and resource.
 
 The last bullet: real modules you wrote at your previous district, Shasta UHSD, and published under the district. SPSAeries (the Aeries SIS API), SPSFreshService, SPSMonday, SPSImmyBot, and SPSAeriesAssetSync, which syncs Chromebooks between Google and Aeries: the real-life version of today's pipeline. They're on GitHub at github.com/suhsdit and on the PowerShell Gallery; both links are in the README.
 

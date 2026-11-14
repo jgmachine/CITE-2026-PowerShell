@@ -25,7 +25,7 @@ Everything you need to run the session without surprises. Timing marks are in ea
 6. Rehearse the whole of [`demos/demo.ps1`](../demos/demo.ps1), top to bottom, in VS Code, with a timer. No step depends on a live AI service.
 7. Make backups:
    - A PDF of the deck is already in the repo: [`from-scripts-to-systems.pdf`](../from-scripts-to-systems.pdf). It was made on 2026-11-14; if you change slides after that, export a fresh one (in `slides/`, run `npm install -D playwright-chromium`, then `npm run export`).
-   - A screen recording of the Act III and Act V demos (QuickTime: File > New Screen Recording).
+   - A screen recording of the Act III demo (QuickTime: File > New Screen Recording).
 
 ## 30 minutes before
 
@@ -61,21 +61,21 @@ Run everything in the same VS Code terminal. Variables like `$ricks` and `$new`,
 
 ## Run of show
 
-30 slides, 4 clicks. Everything else appears on its own.
+29 slides, 4 clicks. Everything else appears on its own.
 
 | Time | Segment | In `demo.ps1` |
 |---|---|---|
-| 0:00 | Title, about me, recommended reading, lab census (show of hands), what we'll cover | |
+| 0:00 | Title, about me, lab census (show of hands), recommended reading, what we'll cover | |
 | 3:00 | Cold open: "Is this talk obsolete?" | |
 | 5:30 | Act I: The three commands, syntax | Act I, part 1 (6 lines) from the three-commands slide; part 2 (9 lines) from the syntax slide; part 3 (5 lines) from the Live demo slide |
 | 12:45 | Find your small problem | |
-| 15:30 | Act II: Script → system | Act II (4 lines, optional) |
+| 15:30 | Act II: Scripts → tools | Act II (4 lines, optional) |
 | 23:00 | Act III: Lego bricks | Act III (8 lines) |
 | 32:30 | Act IV: Secrets | Act IV (2 lines) |
-| 35:00 | Act V: Teach AI your tricks | Act V (4 lines). No live AI |
-| 43:15 | Homework, then questions with the LinkedIn QR code up | |
+| 35:00 | Act V: Teach AI your tricks | No demo |
+| 38:15 | Homework, then questions with the LinkedIn QR code up | |
 
-It's a full 45 minutes. If you're behind at the halfway mark (Act III should start by 23:00), skip the Act II lines, the "What have you automated?" shout-out, and the bricks slide.
+It runs about 40 minutes, which leaves about 5 for questions or slack. If you're behind at the halfway mark (Act III should start by 23:00), skip the Act II lines, the "What have you automated?" shout-out, and the bricks slide.
 
 ## When things break
 
@@ -86,18 +86,7 @@ It's a full 45 minutes. If you're behind at the halfway mark (Act III should sta
 | Vault asks for a password | Type it. That's the vault doing its job. |
 | "Your API key is from the wrong dimension" | The key in the vault doesn't match the server's. Store it again: `Set-Secret -Name MultiverSIS -Secret (Get-Content ./server/data/apikey.txt)`, then reconnect. |
 | "Address already in use" when starting the server | An old MultiverSIS is still running on port 8080. Find its terminal and press Ctrl+C, or run `lsof -ti tcp:8080 \| xargs kill` on the Mac, then start it again. |
-| You try the AI live and it misbehaves | The pipeline it should have written is in `demo.ps1`, right under the prompt. Run that. "This is why you learn to read the code." |
 | Everything is on fire | The slides already show the key output (the pipeline, the dashboard). Keep talking. |
-
-## The AI prompt (optional, if there's time at the end)
-
-The Act V demo doesn't use a live AI: you show the prompt and the script it produces, and run the script yourself. If you have time to spare, the prompt is in `demo.ps1` under Act V, ready to copy into Copilot Chat (Agent mode):
-
-> Learn the MultiverSIS module with Get-Command and Get-Help. Then write a script, withdraw.ps1, that withdraws every student whose enrollment status is Unknown. Use -WhatIf. Don't run it; I'll review it and run it myself.
-
-Copilot should read `.github/copilot-instructions.md`, run `Get-Command -Module MultiverSIS` and `Get-Help`, and write a `Get-SISStudent -EnrollmentStatus Unknown | Set-SISStudent -EnrollmentStatus Withdrawn -WhatIf` pipeline. You read it out loud and run it yourself: `-WhatIf` first (24 students), then for real. On the dashboard, Unknown drops to 0.
-
-Why Copilot only writes the script: it works in its own terminal, which isn't connected to the SIS and can't unlock your vault. Learning the module with `Get-Command` and `Get-Help` needs neither. Delete `withdraw.ps1` after each rehearsal.
 
 ## Reset between rehearsals
 

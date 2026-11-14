@@ -20,6 +20,9 @@ Import-Module ./modules/RickMortyApi, ./modules/DistrictTools, ./modules/Multive
 
 Unlock-SecretStore
 
+# A short prompt, so there's more room to type on the projector. (This session only.)
+function prompt { 'PS> ' }
+
 #endregion
 
 
@@ -96,7 +99,7 @@ $ricks.results | Where-Object { $_.status -eq 'Dead' } | Select-Object name, sta
 #endregion
 
 
-#region Act II: script to system
+#region Act II: scripts to tools
 # START HERE from the "Watch it grow" slide, after v5. (Optional: skip if you're behind.)
 
 # The finished function follows every page. All 107.
@@ -154,30 +157,5 @@ Get-Secret MultiverSIS
 
 Get-SecretVault
 
-# <<< BACK TO THE SLIDES: Act V, "Teach AI Your Tricks"
-#endregion
-
-
-#region Act V: teach AI your tricks
-# START HERE from the "Live demo: Read it. Then run it." slide.
-
-# What the AI reads to learn your module: the same commands as Act I.
-Get-Command -Module MultiverSIS
-
-Get-Help Set-SISStudent -Examples
-
-# The prompt you'd give an AI agent (Copilot, Claude Code, Codex):
-#
-#   Learn the MultiverSIS module with Get-Command and Get-Help. Then write a script,
-#   withdraw.ps1, that withdraws every student whose enrollment status is Unknown.
-#   Use -WhatIf. Don't run it; I'll review it and run it myself.
-#
-# This is the script it writes back. Read it before you run it.
-# (Extra time? Paste the prompt into your agent and compare.)
-Get-SISStudent -EnrollmentStatus Unknown | Set-SISStudent -EnrollmentStatus Withdrawn -WhatIf
-
-# 24 students. That looks right. For real this time: watch the dashboard.
-Get-SISStudent -EnrollmentStatus Unknown | Set-SISStudent -EnrollmentStatus Withdrawn
-
-# <<< BACK TO THE SLIDES: "Just because you can..."
+# <<< BACK TO THE SLIDES: Act V, "Teach AI Your Tricks" (no more demos after this)
 #endregion

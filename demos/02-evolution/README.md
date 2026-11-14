@@ -1,4 +1,4 @@
-# From script to system: the same code, five times
+# From script to tool: the same code, five times
 
 Each file is the same idea, grown up a little more.
 

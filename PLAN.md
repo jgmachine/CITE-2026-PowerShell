@@ -17,7 +17,7 @@ Behind-the-scenes notes: the decisions behind this talk and the repo.
 
 ## Run of show (45 min)
 
-30 slides and 4 clicks. Bullets and cards fade in on their own; clicks are kept only for comedic timing or thinking time.
+29 slides and 4 clicks. Bullets and cards fade in on their own; clicks are kept only for comedic timing or thinking time.
 
 | Time | Segment | Beat |
 |---|---|---|
@@ -25,11 +25,11 @@ Behind-the-scenes notes: the decisions behind this talk and the repo.
 | 3:00 | **Cold open**: "Is this talk obsolete?" | AI writes good code now, so why are you here? Read it, direct it, build it. |
 | 5:30 | **Act I**: The three commands | One slide for `Get-Command`, `Get-Help`, `Get-Member` with a short demo on `Get-Process` (part 1), a syntax cheat sheet with its own short demo (part 2), the data-source slide, then the third demo (part 3): `$ricks = Invoke-RestMethod ...`. `Get-Member` reveals pagination (107 Ricks, 20 per page) |
 | 12:45 | Find your small problem | "Is it worth automating?" |
-| 15:30 | **Act II**: Script → system | Magic-move: one-liner → script → function → advanced function → help. The bare-minimum module: one `.psm1`, then a manifest, then Public/Private, then share it |
+| 15:30 | **Act II**: Scripts → tools | Magic-move: one-liner → script → function → advanced function → help. The bare-minimum module: one `.psm1`, then a manifest, then Public/Private, then share it |
 | 23:00 | **Act III**: Lego bricks | MultiverSIS dashboard, the bricks, the cross-system pipeline, live demo: vendor records become student records, with clickable profiles on the dashboard |
 | 32:30 | **Act IV**: Secrets | Short on purpose: don't put passwords in scripts, and here's the lead on what to do instead (`Get-Secret`, a vault, gMSA for scheduled tasks) |
-| 35:00 | **Act V**: Teach AI your tricks | Three levels (writes PowerShell → writes with your tools → runs your tools). Four steps to make a module AI-ready: make it findable, instructions file, help comments, make it check with `Get-Command`/`Get-Help`. The demo shows what the AI reads, the prompt, and the script it writes; you read it and run it (no live AI unless there's time at the end). Safety. MCP is optional, not the headline |
-| 43:15 | Homework, then questions with the LinkedIn QR code and resources up | |
+| 35:00 | **Act V**: Teach AI your tricks | Three levels (writes PowerShell → writes with your tools → runs your tools). Three steps to make a module AI-ready: make it findable, instructions file (tell it to run `Get-Command`/`Get-Help` first), help comments. No demo in this act. Safety. MCP is optional, not the headline |
+| 38:15 | Homework, then questions with the LinkedIn QR code and resources up | |
 
 ## The Lego pipeline (the whole talk in 3 lines)
 

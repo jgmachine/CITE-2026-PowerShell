@@ -52,7 +52,7 @@ Open the dashboard at <http://localhost:8080>. Then open [`demos/demo.ps1`](demo
 
 ## The demos
 
-[`demos/demo.ps1`](demos/demo.ps1) has one section per act:
+[`demos/demo.ps1`](demos/demo.ps1) has one section for each act with a demo (Act V has none):
 
 | Act | What you'll see |
 |---|---|
@@ -60,7 +60,6 @@ Open the dashboard at <http://localhost:8080>. Then open [`demos/demo.ps1`](demo
 | II | The finished `Get-RMCharacter` function: every page, `[ValidateSet()]`, `-Verbose`, and real help. The five versions it grew through are in [`02-evolution/`](demos/02-evolution). For a simple way to log a script, see [`logging-example.ps1`](demos/logging-example.ps1). |
 | III | The Ricks become students: vendor records in, SIS records out, `-WhatIf` first. Click any student on the dashboard for their full profile. |
 | IV | The API key comes from a vault with `Get-Secret`, not from the script. |
-| V | What an AI reads to learn your module, the prompt you'd give it, and the script it writes back. |
 
 The whole talk in one pipeline:
 
@@ -74,14 +73,13 @@ No Wi-Fi? Set `$env:RMAPI_OFFLINE = 1` before importing the modules. RickMortyAp
 
 ## Teach AI your tools
 
-You don't need anything new to start. Four steps make a module easy for an AI coding agent (Copilot, Claude Code, Codex) to use correctly:
+You don't need anything new to start. Three steps make a module easy for an AI coding agent (Copilot, Claude Code, Codex) to use correctly:
 
 1. **Make the module findable.** Installed on your machine is enough for an agent that can run commands; it doesn't have to live in your project. Opening the module's folder in VS Code also works, and lets the agent read the source.
-2. **Add an instructions file.** Copilot reads [`.github/copilot-instructions.md`](.github/copilot-instructions.md); Claude Code reads `CLAUDE.md`; Codex reads `AGENTS.md`. Tell it to run `Get-Command` and `Get-Help` before writing code, to use your functions, and to show `-WhatIf` first.
+2. **Add an instructions file.** Copilot reads [`.github/copilot-instructions.md`](.github/copilot-instructions.md); Claude Code reads `CLAUDE.md`; Codex reads `AGENTS.md`. Tell it to run `Get-Command <name> -Syntax` and `Get-Help <name> -Examples` before writing code (so it uses real parameter names), to use your functions, and to show `-WhatIf` first.
 3. **Write comment-based help** with `.SYNOPSIS`, `.PARAMETER`, and `.EXAMPLE`. The agent reads it the same way you do.
-4. **Make it check its work** with `Get-Command <name> -Syntax` and `Get-Help <name> -Examples`, so it uses real parameter names.
 
-The Act V section of [`demos/demo.ps1`](demos/demo.ps1) shows what the agent runs to learn MultiverSIS, and a prompt to try. Module on a public GitHub repo? [GitMCP](https://gitmcp.io) lets an agent search it (it reads your code; it doesn't run it).
+Module on a public GitHub repo? [GitMCP](https://gitmcp.io) lets an agent search it (it reads your code; it doesn't run it).
 
 ## Going further: let an AI run your tools (MCP)
 
