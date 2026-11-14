@@ -24,7 +24,7 @@ Everything you need to run the session without surprises. Timing marks are in ea
    ```
 6. Rehearse the whole of [`demos/demo.ps1`](../demos/demo.ps1), top to bottom, in VS Code, with a timer. No step depends on a live AI service.
 7. Make backups:
-   - A PDF of the deck: in `slides/`, run `npm install -D playwright-chromium`, then `npm run export`.
+   - A PDF of the deck is already in the repo: [`from-scripts-to-systems.pdf`](from-scripts-to-systems.pdf). It was made on 2026-11-14; if you change slides after that, export a fresh one (in `slides/`, run `npm install -D playwright-chromium`, then `npm run export`).
    - A screen recording of the Act III and Act V demos (QuickTime: File > New Screen Recording).
 
 ## 30 minutes before

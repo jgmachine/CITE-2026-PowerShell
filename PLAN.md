@@ -51,7 +51,7 @@ CITE-2026-PowerShell/
 ├─ server/               Start-MultiverSIS.ps1 (Pode API) + public/index.html (dashboard)
 ├─ demos/                demo.ps1 (every command from the talk, in order) + 02-evolution/
 ├─ mcp/                  Start-MultiverSISMcp.ps1 (plain-PowerShell MCP server)
-├─ docs/                 worksheet.md, presenter-runbook.md
+├─ docs/                 from-scripts-to-systems.pdf, worksheet.md, presenter-runbook.md
 ├─ slides/               Slidev deck (slides.md, components/, layouts/, styles/)
 ├─ .vscode/mcp.json      Copilot's MCP config (prompts for the API key)
 └─ .github/              copilot-instructions.md, workflows/deploy-slides.yml
